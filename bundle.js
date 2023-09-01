@@ -4297,7 +4297,7 @@ module.exports = styleTagTransform;
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
+/******/ 		__webpack_require__.p = "/perf-basecamp";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
