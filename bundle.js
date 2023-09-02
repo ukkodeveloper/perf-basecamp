@@ -4297,7 +4297,25 @@ module.exports = styleTagTransform;
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/perf-basecamp";
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
@@ -10729,13 +10747,13 @@ function usePrompt(_ref8) {
 var classnames = __webpack_require__(184);
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 ;// CONCATENATED MODULE: ./src/assets/images/hero.png
-/* harmony default export */ const hero = (__webpack_require__.p + "static/hero.png");
+/* harmony default export */ const hero = (__webpack_require__.p + "hero.png");
 ;// CONCATENATED MODULE: ./src/assets/images/trending.gif
-/* harmony default export */ const trending = (__webpack_require__.p + "static/trending.gif");
+/* harmony default export */ const trending = (__webpack_require__.p + "trending.gif");
 ;// CONCATENATED MODULE: ./src/assets/images/find.gif
-/* harmony default export */ const find = (__webpack_require__.p + "static/find.gif");
+/* harmony default export */ const find = (__webpack_require__.p + "find.gif");
 ;// CONCATENATED MODULE: ./src/assets/images/free.gif
-/* harmony default export */ const free = (__webpack_require__.p + "static/free.gif");
+/* harmony default export */ const free = (__webpack_require__.p + "free.gif");
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
 var injectStylesIntoStyleTag = __webpack_require__(379);
 var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
